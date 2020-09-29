@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workspaceFilter version="1.0">
+    <filter root="/content/example"/>
+    <filter root="/content/dam/example"/>
+    <filter root="/etc/map.publish/http/demo.example.com"/>
+    <filter root="/content/mit-poc"/>
+    <filter root="/content/dam/mit-poc"/>
+</workspaceFilter>

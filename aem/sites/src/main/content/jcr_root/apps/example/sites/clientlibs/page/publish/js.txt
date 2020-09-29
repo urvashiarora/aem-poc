@@ -1,0 +1,2 @@
+#base=dist
+main.bundle.js

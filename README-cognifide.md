@@ -1,14 +1,25 @@
-![CTM logo](https://cdn2.comparethemarket.com/market/cms/logos/components-logo.svg)
+![Cognifide logo](docs/cognifide-logo.png)
 
 [![Gradle Status](https://gradleupdate.appspot.com/Cognifide/gradle-aem-multi/status.svg?random=456)](https://gradleupdate.appspot.com/Cognifide/gradle-aem-multi/status)
 [![Apache License, Version 2.0, January 2004](https://img.shields.io/github/license/Cognifide/gradle-aem-multi.svg?label=License)](http://www.apache.org/licenses/)
 
-[![Gradle AEM Plugin logo](https://raw.githubusercontent.com/Cognifide/gradle-aem-plugin/master/docs/logo.png)](https://github.com/Cognifide/gradle-aem-plugin)
+[![Gradle AEM Plugin logo](docs/logo.png)](https://github.com/Cognifide/gradle-aem-plugin)
 
-#  Rewards Omni Channel POC
+# AEM Multi-Project Example
 
 ## Description
 
+This project could be used to start developing **long-term project** based on AEM.
+
+To start developing **application/library** based on AEM it is recommended to use [Gradle AEM Single](https://github.com/Cognifide/gradle-aem-single) instead.
+
+Documentation for AEM plugin is available in project [Gradle AEM Plugin](https://github.com/Cognifide/gradle-aem-plugin).
+
+## Screenshot
+
+<p align="center">
+  <img src="docs/gradle-aem-multi-build.gif" alt="Gradle AEM Multi Build"/>
+</p>
 
 ## Table of Contents
 
@@ -70,33 +81,50 @@ Maintenance:
 1. Fork project using command:
 
     ```bash
-    git clone https://github.com/ComparetheMarket/market.aem-proof-of-concept
+    git clone https://github.com/Cognifide/gradle-aem-multi.git && cd gradle-aem-multi && sh gradlew fork
     ```
-2. Make sure no AEM project is running
-    1. Run ```docker ps``` or check in the docker app. 
 
-3. Setup user specific project configuration using command:
+    and specify properties:
+
+    ![Fork Props Dialog](docs/fork-default-dialog.png)
+    
+    and wait until project is forked then enter configured target directory.
+
+2. Setup user specific project configuration using command:
 
     ```bash
     sh gradlew props
     ```
-      
+    
+    and specify properties:
+
+    ![Fork Props Dialog](docs/fork-props-dialog.png)
+
+3. Setup local AEM instances with dependencies and AEM dispatcher (see [prerequisites](https://github.com/Cognifide/gradle-aem-plugin/tree/develop#environment-configuration)) then build application using command:
+
+    ```bash
+    sh hosts
+    sh gradlew setup
+    ```
+    
+    and wait till complete AEM environment will be ready to use.
+  
 4. Develop continuously application using command:
 
     ```bash
-    gradlew
+    sh gradlew
     ```
    
     which is an alias for:
     
     ```bash
-    gradlew develop
+    sh gradlew develop
     ```
     
     or to just deploy AEM application (without running anything else):
     
     ```bash
-    gradlew :aem:assembly:full:packageDeploy
+    sh gradlew :aem:assembly:full:packageDeploy
     ```
 
 ## Prerequisites
@@ -141,22 +169,22 @@ Assumptions:
 1. Use command `gradlew` so that Gradle in version according to project will be downloaded automatically.
 2. Deploy application:
     * Full assembly and run all tests
-        * `gradlew` <=> `gradlew :develop`
+        * `sh gradlew` <=> `sh gradlew :develop`
     * Only assembly packages:
-        * `gradlew :aem:assembly:full:packageDeploy`
-        * `gradlew :aem:assembly:app:packageDeploy`
+        * `sh gradlew :aem:assembly:full:packageDeploy`
+        * `sh gradlew :aem:assembly:app:packageDeploy`
     * Only single package:
-        * `gradlew :aem:sites:packageDeploy`,
-        * `gradlew :aem:common:packageDeploy`,
-        * `gradlew :aem:site.demo:packageDeploy`.
-        * `gradlew :aem:site.live:packageDeploy`,
+        * `sh gradlew :aem:sites:packageDeploy`,
+        * `sh gradlew :aem:common:packageDeploy`,
+        * `sh gradlew :aem:site.demo:packageDeploy`.
+        * `sh gradlew :aem:site.live:packageDeploy`,
         
 ## Tooling
 
-1. Monitoring errors in logs: `gradlew instanceTail`
+1. Monitoring errors in logs: `sh gradlew instanceTail`
 2. Synchronizing JCR content from AEM to local file system:
-    * `gradlew :aem:site.demo:packageSync`
-    * `gradlew :aem:site.live:packageSync`
+    * `sh gradlew :aem:site.demo:packageSync`
+    * `sh gradlew :aem:site.live:packageSync`
 3. Interactively updating HTTPD Virtual-Host & AEM Dispatcher configuration: `sh gradlew environmentDev`
 4. Copying JCR content between AEM instances: `sh gradlew :aem:sites:demo:instanceRcp -Pinstance.rcp.source=http://user:pass@x.x.x.x:4502 -Pinstance.rcp.target=local-author -Pinstance.rcp.paths=[/content/example,/content/dam/example]`
 

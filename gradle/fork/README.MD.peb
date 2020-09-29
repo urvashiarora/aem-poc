@@ -1,0 +1,33 @@
+# {{ projectLabel }}
+
+## Description
+
+TBD
+
+## Building
+
+Project build is based on [Gradle](https://docs.gradle.org/current/userguide/userguide.html) and using [Gradle AEM Plugin](https://github.com/Cognifide/gradle-aem-plugin).
+
+### Environment
+
+0. See [prerequisites](https://github.com/Cognifide/gradle-aem-plugin/tree/develop#environment-configuration)
+1. Generate user-specific properties file covering AEM instance source files and configuration:
+    ```bash
+    sh gradlew props
+    ```
+2. Append project-specific host entries to OS-specific file by running script:
+    * `sh hosts` (Unix)
+    * `hosts.bat` (Windows)
+
+3. Create, run and configure AEM instances and AEM dispatcher automatically by running command:
+    ```bash
+    sh gradlew setup
+    ```
+
+### Application
+
+To build CRX package and deploy it on AEM instance(s), simply run command:
+
+```bash
+sh gradlew
+```

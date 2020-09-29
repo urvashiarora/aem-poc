@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:dam="http://www.day.com/dam/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0"
+    jcr:mixinTypes="[mix:referenceable]"
+    jcr:primaryType="dam:Asset">
+    <jcr:content
+        cq:name="what-is-open-banking"
+        cq:parentPath="/content/dam/mit-poc/en/open-banking/faqs"
+        jcr:description=""
+        jcr:primaryType="dam:AssetContent"
+        jcr:title="What is Open Banking"
+        contentFragment="{Boolean}true"
+        lastFragmentSave="{Date}2020-09-09T15:44:55.636+01:00">
+        <data
+            cq:model="/conf/mit-poc/settings/dam/cfm/models/basic-faq"
+            jcr:primaryType="nt:unstructured">
+            <master
+                jcr:mixinTypes="[cq:Taggable]"
+                jcr:primaryType="nt:unstructured"
+                answer="Open Banking was introduced by the Competition and Markets Authority (CMA) and is a secure way for you to share your bank transaction data with authorised service providers, such as Compare the Market. If you choose to connect your account(s), we can help you to keep on top of your bills and regular payments, helping you to better understand your spending, and potential saving opportunities. It is a free service and you can remove your accounts at any time. To use our service, you’ll need to give your consent for us to access your financial data. This consent lasts for 90 days and will need to be refreshed. Compare the Market will be able to view your financial data but we cannot move any money, make payments or perform any other action on your account; and you can remove your accounts at any time."
+                question="What is Open Banking?"/>
+        </data>
+        <metadata
+            jcr:mixinTypes="[cq:Taggable]"
+            jcr:primaryType="nt:unstructured"/>
+        <related jcr:primaryType="nt:unstructured"/>
+    </jcr:content>
+</jcr:root>

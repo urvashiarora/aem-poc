@@ -1,0 +1,51 @@
+/demo
+  {
+  /clientheaders
+    {
+    "*"
+    }
+  /virtualhosts
+    {
+    "example.com"
+    "www.example.com"
+    }
+  /renders
+    {
+    /rend01
+      {
+      /hostname "host.docker.internal"
+      /port "4503"
+      /always-resolve "1"
+      }
+    }
+  /filter
+    {
+    /0001 { /type "allow" /glob "*" } # URL mapping done on AEM: https://docs.adobe.com/content/help/en/experience-manager-dispatcher/using/configuring/dispatcher-domains.html#aem-rewrites-incoming-urls
+    # Disable consoles
+     /0010 { /type "deny" /glob "* /system/*" }
+     /0011 { /type "deny" /glob "* /crx*" }
+     /0012 { /type "deny" /glob "* /admin/*" }
+    }
+  /cache
+    {
+    /docroot "/opt/aem/dispatcher/cache/content"
+    /allowAuthorized "1"
+    /statfileslevel "0"
+    /rules
+      {
+      /0000
+        {
+        /glob "*"
+        /type "allow"
+        }
+      }
+      /invalidate #list of auto invalidated documents
+        {
+        /0000
+          {
+          /glob "*"
+          /type "deny"
+          }
+        }
+    }
+}

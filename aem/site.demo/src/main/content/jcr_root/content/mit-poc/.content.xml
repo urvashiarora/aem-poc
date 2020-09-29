@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:allowedTemplates="/conf/mit-poc/settings/wcm/templates/.*"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="MIT Proof of Concept"
+        sling:resourceType="mit-poc/components/renderers/page">
+        <image
+            jcr:primaryType="nt:unstructured"
+            fileReference="/content/dam/mit-poc/Meerkat-icon.PNG"/>
+    </jcr:content>
+    <home-page/>
+    <api/>
+</jcr:root>

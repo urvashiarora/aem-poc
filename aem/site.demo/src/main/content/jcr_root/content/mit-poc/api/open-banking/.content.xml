@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:sling="http://sling.apache.org/jcr/sling/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:template="/conf/mit-poc/settings/wcm/templates/api-page-template"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Open Banking"
+        sling:resourceType="mit-poc/components/renderers/page">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/foundation/components/responsivegrid">
+            <text
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="foundation/components/text"
+                text="&lt;p>This is the Open Banking API, do we even need this title? It's rich trxt so we certainly would not want it this way.&lt;/p>&#xd;&#xa;"
+                textIsRich="true"/>
+            <contentfragmentlist
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="wknd/components/content/contentfragmentlist"
+                modelPath="/conf/mit-poc/settings/dam/cfm/models/basic-faq"
+                orderBy="jcr:created"
+                parentPath="/content/dam/mit-poc/en/open-banking/faqs"
+                sortOrder="asc"/>
+        </root>
+    </jcr:content>
+</jcr:root>
