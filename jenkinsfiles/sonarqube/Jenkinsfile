@@ -1,3 +1,7 @@
+addEmbeddableBadgeConfiguration(id: <string>, subject: <string>, status: <string>, color: <string>, animatedOverlayColor: <string>, link: <string>)
+
+def win32BuildBadge = addEmbeddableBadgeConfiguration(id: "win32build", subject: "Windows Build")
+
 pipeline {
 	agent any
 	environment {
@@ -16,7 +20,19 @@ pipeline {
 		}
 		stage('Sonarqube') {
 			steps {
-				sh "./gradlew -S -i clean sonarqube -Dsonar.login=${SQ_TOKEN}"
+				   script {
+                			win32BuildBadge.setStatus('running')
+               				 try {
+			    			sh "./gradlew -S -i clean sonarqube -Dsonar.login=${SQ_TOKEN}"
+                    				win32BuildBadge.setStatus('passing')
+                			} catch (Exception err) {
+                    			win32BuildBadge.setStatus('failing')
+
+                   			 win32BuildBadge.setColor('pink')
+
+                    			error 'Build failed'
+                			}
+           			 }
 			}
 		}
 	}
