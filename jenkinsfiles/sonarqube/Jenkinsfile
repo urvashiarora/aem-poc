@@ -9,6 +9,7 @@ pipeline {
 	stages {
 		stage('Clone sources') {
 			steps {
+				git credentialsId: '04f33554-fcb8-4fad-aafe-ef28648cbf42',
 					url: 'https://github.com/urvashiarora/aem-poc.git',
 					branch: params.branch
 			}
