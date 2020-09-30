@@ -9,8 +9,7 @@ pipeline {
 	stages {
 		stage('Clone sources') {
 			steps {
-				git credentialsId: '93e9e1ee-2e49-484a-9dda-876c2d8f8db0',
-					url: 'git@github.com:ComparetheMarket/market.aem-proof-of-concept.git',
+					url: 'https://github.com/urvashiarora/aem-poc.git',
 					branch: params.branch
 			}
 		}
