@@ -1,6 +1,6 @@
 addEmbeddableBadgeConfiguration(id: <string>, subject: <string>, status: <string>, color: <string>, animatedOverlayColor: <string>, link: <string>)
 
-def win32BuildBadge = addEmbeddableBadgeConfiguration(id: "win32build", subject: "Windows Build")
+def win32BuildBadge = addEmbeddableBadgeConfiguration(id: "win32build", subject: "Windows Build", status: "Successful")
 
 pipeline {
 	agent any
